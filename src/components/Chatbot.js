@@ -173,7 +173,7 @@ className='w-full outline-none resize-none overflow-hidden min-h-10 rounded-xl p
 </div>
 
 {iconstatus ? (
-  <div className={`fixed  bottom-5 w-[60px] h-[60px]  m-5  right-0 z-[100] ! rounded-full cursor-pointer flex items-center bg-red-300`} onClick={()=>seticonstatus(!iconstatus)}>
+  <div className={`fixed  bottom-5 w-[60px] h-[60px]  m-5  right-0 z-[100] ! rounded-full cursor-pointer flex items-center bg-[#FF7F50]`} onClick={()=>seticonstatus(!iconstatus)}>
     <img src={chatlogo} alt="chatlogo" className='checkmark m-auto w-[80%] rounded-full font-[60px] '  />
   </div>
 ) : (

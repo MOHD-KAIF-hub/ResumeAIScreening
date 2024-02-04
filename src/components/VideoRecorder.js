@@ -133,7 +133,7 @@ const VideoRecorder = () => {
     return (
       <div className=" flex flex-col gap-5 justify-center items-center">
       <h1 className="text-2xl font-bold text-zinc-700 mt-16 text-center">
-      You application has been submitted successfully.
+      Your application has been submitted successfully.
       </h1>
       <button onClick={handleGohome} className="mt-10 mb-10 bg-blue-300 p-2 rounded-xl py-2 px-5 w-3/4 md:w-1/3 hover:opacity-70 lg:text-lg font-semibold text-gray-800"> Back to Home</button>
       </div>

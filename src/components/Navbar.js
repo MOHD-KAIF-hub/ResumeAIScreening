@@ -14,14 +14,14 @@ const Navbar = () => {
        
         <div className="w-screen my-3  h-[1px] bg-zinc-300"></div>
         {/* Navigation Links */}
-        <div className=" flex font-extralight ml-auto mb-5 text-amber-600 mr-[200px]  space-x-4 md:space-x-8">
-          <Link to="/" className="  hover:text-amber-800    md:text-xl ">
+        <div className=" flex font-semibold ml-auto mb-5 text-amber-600 mr-[200px]  space-x-4 md:space-x-8">
+          <Link to="/" className="  hover:text-amber-800    md:text-lg ">
             Home
           </Link>
-          <Link to="/" className="hover:text-amber-800  md:text-xl ">
+          <Link to="/" className="hover:text-amber-800  md:text-lg ">
             New Job
           </Link>
-          <Link to="/" className="hover:text-amber-800  md:text-xl ">
+          <Link to="/" className="hover:text-amber-800  md:text-lg ">
             New Course
           </Link>
         </div>
