@@ -4,9 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faXmark, faCircleArrowRight,faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import chatlogo from "../assets/chatlogo.png"
 import { useLocation } from 'react-router-dom';
-
-
-import { v4 as uuidv4 } from 'uuid';
+import ChatbotResponse from './ChatbotResponse';
 
 
 const Chatbot = () => {
@@ -15,17 +13,14 @@ const Chatbot = () => {
   const [iconstatus,seticonstatus]=useState(true);
   const [messages, setMessages] = useState([
     {
-      id: uuidv4(),
       text: '👋 Hi! I am Talent Academy AI, ask me anything about Talent Academy!',
       sender: 'Chatbot',
     },
   ]);
 
   const questions = [
-    "How can I help you?",
-    "What services do you provide?",
-    "How do I contact support?",
-    "Any Questions from Talent Academy Ai"
+  
+    "What is Talent Academy Ai",
   ];
 
   const handleUserInput = async (userInputText) => {
@@ -51,7 +46,7 @@ const Chatbot = () => {
 
       const data = await res.json();
   
-
+   console.log(data);
       const botResponse = {
         text: `${data.response}`,
         sender: 'Chatbot',
@@ -76,7 +71,6 @@ const handleClick=()=>seticonstatus(!iconstatus)
   const reload = () => {
     setMessages([
       {
-        id: uuidv4(),
         text: '👋 Hi! I am Talent Academy AI, ask me anything about Talent Academy!',
         sender: 'Chatbot',
       },
@@ -88,6 +82,7 @@ const handleClick=()=>seticonstatus(!iconstatus)
     return null; 
   }
  
+
   return (
     <>
      <div className={`fixed ${iconstatus?'invisible':''}   z-[100]  right-0 top-10  flex flex-col w-[460px] gap-5 ml-auto rounded-xl mr-7 `}>
@@ -104,22 +99,28 @@ const handleClick=()=>seticonstatus(!iconstatus)
          <span className='font-semibold'>Talent Academy</span>
        </div>
        <div className='icon_div flex mt-auto mr-[10px] ml-auto mb-auto gap-[15px]'>
-           <FontAwesomeIcon  className='icon cursor-pointer' icon={faXmark} onClick={handleClick} />
-           <FontAwesomeIcon  className='icon cursor-pointer' icon={faArrowsRotate} onClick={reload} />
+           <FontAwesomeIcon key="1" className='icon cursor-pointer' icon={faXmark} onClick={handleClick} />
+           <FontAwesomeIcon key="2" className='icon cursor-pointer' icon={faArrowsRotate} onClick={reload} />
         </div>       
    
    </div>
        {/* Message Body Part */}
-   <div className="Body h-[66%] m-[8px] overflow-auto">
+   <div className="Body h-[70%] m-[8px] overflow-auto">
 
 
-{messages.map((message) => (
- <div className={` z-100 ${message.sender === 'User' ? 'justify-end flex' : ''}`} key={message.id}>
-   <div className={`message  m-[5px] p-[10px] min-w-[50px] max-w-[80%] text-left min-h-[40px] text-base inline-block rounded-lg bg-gray-200`} style={{backgroundColor:message.sender === 'User' ? 'bg-blue-400' : ''}}>
-     <p key={message.id}>{message.text}</p>
+{messages.map((message,ind) => (
+ <div className={` z-100 ${message.sender === 'User' ? 'justify-end flex' : ''}`} key={ind}>
+   <div className={`message ${message.sender === 'User' ? ' bg-blue-700 text-white' : ''} m-[5px] p-[10px] min-w-[50px] max-w-[80%] text-left min-h-[40px] text-base inline-block rounded-lg bg-gray-200`} style={{backgroundColor:message.sender === 'User' ? 'bg-blue-400' : ''}}>
+   <ChatbotResponse
+                  text={message.text}
+                  
+                />
+                
+               
    </div>
  </div>
 ))}
+
 
 
 

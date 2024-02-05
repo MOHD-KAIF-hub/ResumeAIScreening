@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container mx-auto flex flex-col items-center justify-between">
       <div className=" w-4/5  flex justify-between items-center ">
          <Link to="/"><img src={neom} alt="neom" className="w-20" /></Link>
-          <img src={logo} alt="logo" className="w-24" />
+          <img src={logo} alt="logo" className="w-[200px]" />
         
         </div>
        
